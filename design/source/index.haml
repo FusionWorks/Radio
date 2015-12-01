@@ -1,0 +1,24 @@
+<!doctype html>
+%html.no-js{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+      %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}
+        %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+          %title FW Radio Station
+          %link{:href => "css/app.css", :rel => "stylesheet"}
+  %body
+    .content-wrapper
+      .button-group.radio-btns
+        %a.button
+          %i.fi-play
+        %a.button
+          %i.fi-stop
+        %a.button
+          %i.fi-volume
+        %a.button
+          %i.fi-music
+
+    %script{:src => "bower_components/jquery/dist/jquery.js"}
+    %script{:src => "bower_components/foundation/js/foundation.min.js"}
+    %script{:src => "bower_components/jquery-backstretch/src/jquery.backstretch.js"}
+    %script{:src => "js/app.js"}

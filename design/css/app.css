@@ -1,0 +1,23 @@
+@import url(../bower_components/foundation/css/foundation.min.css);
+@import url(../fonts/foundation-icons.css);
+.content-wrapper {
+  height: 100%;
+}
+
+.content-wrapper .button-group {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+.content-wrapper .button-group .button {
+  margin: 0 -0.134rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 1.4rem;
+  padding: 1rem 2.019rem 0.9rem;
+}
+
+.content-wrapper .button-group .button:hover {
+  background-color: black;
+}
