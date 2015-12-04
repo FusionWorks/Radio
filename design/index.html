@@ -11,24 +11,61 @@
     </meta>
   </head>
   <body>
-    <div class='content-wrapper'>
-      <div class='button-group radio-btns'>
-        <a class='button'>
-          <i class='fi-play'></i>
-        </a>
-        <a class='button'>
-          <i class='fi-stop'></i>
-        </a>
-        <a class='button'>
-          <i class='fi-volume'></i>
-        </a>
-        <a class='button'>
-          <i class='fi-music'></i>
-        </a>
+    <div class='off-canvas-wrapper'>
+      <div class='off-canvas-wrapper-inner' data-off-canvas-wrapper=''>
+        <div class='off-canvas position-left' data-off-canvas='' id='offCanvas'>
+          <nav class='left-off-canvas-menu'>
+            <div class='song-wrap current-song'>
+              <div class='time'>
+                <i class='fi-play'></i>
+              </div>
+              <div class='name'>The Encyclopedists</div>
+            </div>
+            <div class='song-wrap'>
+              <div class='time'>14:23</div>
+              <div class='name'>The Encyclopedists Encyclopedists - Encyclopedists Encyclopedists</div>
+            </div>
+            <div class='song-wrap'>
+              <div class='time'>14:23</div>
+              <div class='name'>The Encyclopedists</div>
+            </div>
+            <div class='song-wrap'>
+              <div class='time'>14:23</div>
+              <div class='name'>The Encyclopedists</div>
+            </div>
+          </nav>
+        </div>
+        <div class='off-canvas-content' data-off-canvas-content=''>
+          <div class='content-wrapper'>
+            <div class='media-buttons'>
+              <div class='button-group clearfix float-center'>
+                <a class='button columns small-3' data-toggle='offCanvas'>
+                  <i class='fi-music'></i>
+                </a>
+                <a class='button columns small-3'>
+                  <i class='fi-play active'></i>
+                </a>
+                <a class='button columns small-3'>
+                  <i class='fi-stop stop'></i>
+                </a>
+                <a class='button columns small-3 volume-btn'>
+                  <i class='fi-volume'></i>
+                  <span class='volume'>
+                    <span class='slider vertical' data-end='100' data-initial-start='50' data-slider='' data-vertical='true'>
+                      <span aria-controls='Value' class='slider-handle' data-slider-handle='' role='slider' tabindex='1'></span>
+                      <span class='slider-fill' data-slider-fill=''></span>
+                    </span>
+                    <input disabled=' ' id='Value' type='number'>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src='bower_components/jquery/dist/jquery.js'></script>
-    <script src='bower_components/foundation/js/foundation.min.js'></script>
+    <script src='bower_components/foundation-sites/dist/foundation.js'></script>
     <script src='bower_components/jquery-backstretch/src/jquery.backstretch.js'></script>
     <script src='js/app.js'></script>
   </body>

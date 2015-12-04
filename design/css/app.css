@@ -1,23 +1,124 @@
-@import url(../bower_components/foundation/css/foundation.min.css);
+@import url(../bower_components/foundation-sites/dist/foundation.min.css);
 @import url(../fonts/foundation-icons.css);
+* {
+  outline: none 0;
+}
+
+.off-canvas-wrapper, .off-canvas-wrapper-inner {
+  height: 100%;
+}
+
+.off-canvas-content {
+  overflow: hidden;
+}
+
 .content-wrapper {
   height: 100%;
 }
 
-.content-wrapper .button-group {
+.content-wrapper .media-buttons {
   position: absolute;
   bottom: 0;
   right: 0;
   text-align: center;
+  width: 100%;
+  margin: 0;
 }
 
-.content-wrapper .button-group .button {
-  margin: 0 -0.134rem;
+.content-wrapper .media-buttons .button-group {
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.content-wrapper .media-buttons .button-group .button {
   background-color: rgba(0, 0, 0, 0.7);
   font-size: 1.4rem;
   padding: 1rem 2.019rem 0.9rem;
+  position: relative;
+  border: none;
 }
 
-.content-wrapper .button-group .button:hover {
+.content-wrapper .media-buttons .button-group .button:hover {
   background-color: black;
+}
+
+.content-wrapper .media-buttons .button-group .button .fi-play.active {
+  color: #1fd327;
+}
+
+.content-wrapper .media-buttons .button-group .button .fi-stop.stop {
+  color: #E64B4B;
+}
+
+.content-wrapper .media-buttons .button-group .button .volume {
+  position: absolute;
+  width: 100%;
+  height: 140px;
+  top: 100%;
+  right: 0;
+  background-color: #000;
+  padding-top: 10px;
+}
+
+.content-wrapper .media-buttons .button-group .button .volume .slider.vertical {
+  height: 70%;
+}
+
+.content-wrapper .media-buttons .button-group .button .volume #Value {
+  background: transparent;
+  color: #fff;
+  border: none;
+  text-align: center;
+  padding-left: 20px;
+}
+
+.content-wrapper .media-buttons .button-group .volume-btn.active {
+  background-color: #000;
+}
+
+.content-wrapper .media-buttons .button-group .volume-btn.active .volume {
+  bottom: 100%;
+  top: auto;
+}
+
+.off-canvas {
+  height: 100%;
+  background-color: #333333;
+}
+
+.off-canvas .song-wrap {
+  border-bottom: 1px solid #262626;
+  color: rgba(255, 255, 255, 0.7);
+  display: table;
+  width: 100%;
+  padding: 0.66667rem;
+  -webkit-transition: background 500ms ease;
+  -moz-transition: background 500ms ease;
+  -o-transition: background 500ms ease;
+  transition: background 300ms ease;
+}
+
+.off-canvas .song-wrap.current-song {
+  color: #fff;
+}
+
+.off-canvas .song-wrap.current-song .time {
+  width: 20px;
+}
+
+.off-canvas .song-wrap.current-song .time .fi-play {
+  color: #1fd327;
+  font-size: 150%;
+}
+
+.off-canvas .song-wrap .time, .off-canvas .song-wrap .name {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.off-canvas .song-wrap .time {
+  font-size: 70%;
+  color: #fff;
+  width: 40px;
 }

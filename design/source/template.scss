@@ -1,21 +1,101 @@
-@import "../bower_components/foundation/css/foundation.min.css";
+@import "../bower_components/foundation-sites/dist/foundation.min.css";
 @import "../fonts/foundation-icons.css";
+* {
+  outline: none 0;
+}
+.off-canvas-wrapper, .off-canvas-wrapper-inner {
+  height: 100%;
+}
+.off-canvas-content {overflow: hidden;}
 .content-wrapper {
   height: 100%;
-  .button-group {
+  .media-buttons {
     position: absolute;
     bottom: 0;
     right: 0;
     text-align: center;
-    .button {
-      margin: 0 -0.134rem;
-      background-color: rgba(0,0,0,0.7);
-      font-size: 1.4rem;
-      padding: 1rem 2.019rem 0.9rem;
-      &:hover {
-        background-color: rgba(0,0,0,1);
+    width: 100%;
+    margin: 0;
+    .button-group {
+      margin-bottom: 0;
+      display: inline-block;
+      vertical-align: bottom;
+      .button {
+        background-color: rgba(0,0,0,0.7);
+        font-size: 1.4rem;
+        padding: 1rem 2.019rem 0.9rem;
+        position: relative;
+        border: none;
+        &:hover, {
+          background-color: rgba(0,0,0,1);
+        }
+        .fi-play.active {
+          color: #1fd327;
+        }
+        .fi-stop.stop {
+          color: #E64B4B;
+        }
+        .volume {
+          position: absolute;
+          width:100%;
+          height: 140px;
+          top: 100%;
+          right: 0;
+          background-color: #000;
+          padding-top: 10px;
+          .slider.vertical {
+            height: 70%;
+          }
+          #Value {
+            background: transparent;
+            color: #fff;
+            border: none;
+            text-align: center;
+            padding-left: 20px;
+          }
+        }
+      }
+      .volume-btn.active {
+        background-color: #000;
+        .volume {
+          bottom: 100%;
+          top: auto;
+        }
       }
     }
   }
 }
-
+.off-canvas {
+  height: 100%;
+  background-color: #333333;
+  .song-wrap{
+    border-bottom: 1px solid #262626;
+    color: rgba(255, 255, 255, 0.7);
+    display: table;
+    width: 100%;
+    padding: 0.66667rem;
+    -webkit-transition: background 500ms ease;
+    -moz-transition: background 500ms ease;
+    -o-transition: background 500ms ease;
+    transition: background 300ms ease;
+    &.current-song {
+      color: #fff;
+      .time {
+        width: 20px;
+        .fi-play {
+          color: #1fd327;
+          font-size: 150%;
+        }
+      }
+    }
+    .time, .name {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .time {
+      font-size: 70%;
+      color: #fff;
+      width: 40px;
+    }
+  }
+}
