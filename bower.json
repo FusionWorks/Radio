@@ -1,0 +1,25 @@
+{
+  "name": "radio",
+  "description": "",
+  "main": "app.coffee",
+  "authors": [
+    "alahtarin <alex.lahtarin@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/kokyhin/FW-radiostation",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-backstretch": "~2.0.4",
+    "foundation-sites": "~6.0.5"
+  }
+}

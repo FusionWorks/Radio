@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 
 $(document).foundation();
+
   $('.off-canvas-content').backstretch([
         "http://dl.dropbox.com/u/515046/www/outside.jpg"
       , "http://dl.dropbox.com/u/515046/www/garfield-interior.jpg"
