@@ -35,4 +35,9 @@ block content
                     span.slider-handle(aria-controls='Value', data-slider-handle='', role='slider', tabindex='1')
                     span.slider-fill(data-slider-fill='')
                   input#Value(disabled=' ', type='number')
+  html
+    body
+      audio(controls='')
+        source(src='http://localhost:3000/stream', type='audio/mpeg')
   != js("main")
+

@@ -4,6 +4,7 @@ logger = require 'morgan'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
 fs = require 'fs'
+mongoose = require 'mongoose'
 
 paths =
   views: 'views'
@@ -11,6 +12,9 @@ paths =
   assets: 'assets'
 
 app = express()
+
+# init DB
+mongoose.connect 'mongodb://localhost/fw-radio'
 
 # view engine setup
 app.set 'views', "./#{paths.views}"

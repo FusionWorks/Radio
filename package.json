@@ -6,6 +6,7 @@
     "start": "coffee ./bin/www"
   },
   "dependencies": {
+    "binaryjs": "https://github.com/binaryjs/binaryjs/tarball/master",
     "body-parser": "~1.10.2",
     "bower": "^1.6.9",
     "coffee": "^2.1.0",
@@ -16,6 +17,10 @@
     "jade": "~1.9.1",
     "mongoose": "^4.2.9",
     "morgan": "~1.5.1",
-    "serve-favicon": "~2.2.0"
+    "node-ffprobe": "^1.2.2",
+    "request": "^2.67.0",
+    "serve-favicon": "~2.2.0",
+    "throttle": "^1.0.3",
+    "underscore": "^1.8.3"
   }
 }
