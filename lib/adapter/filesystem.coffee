@@ -28,6 +28,6 @@ class FileSystemAdapter
 
       rate = data.format.bit_rate
       stream = fs.createReadStream file
-      cb new Track stream, "#{data.metadata.artist} - #{data.metadata.title}", rate
+      cb new Track stream, "#{data.metadata.artist} - #{data.metadata.title}", data.format.duration, rate
 
 module.exports = FileSystemAdapter

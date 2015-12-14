@@ -26,6 +26,7 @@ $ ->
 
   socket = io 'http://localhost:8000'
   socket.on 'track', (track) ->
+    $(".current-song .name").html track.name
     console.log track
 
   player = new Player

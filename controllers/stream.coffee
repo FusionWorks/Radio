@@ -8,6 +8,7 @@ module.exports = (app) ->
 
   adapter = new Adapter 'media'
   radio = new Radio adapter, socket
+  app.radio = radio
 
   app.get '/stream', (req, res) ->
     listener = radio.addListener req, res

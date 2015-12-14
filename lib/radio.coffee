@@ -52,5 +52,6 @@ class Radio
   onEnd: =>
     @currentTrack = null
     delete @currentTrack
+    @_next()
 
 module.exports = Radio
