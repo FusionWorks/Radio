@@ -19,15 +19,15 @@ block content
             .time 14:23
             .name The Encyclopedists
       .off-canvas-content(data-off-canvas-content='')
-        .content-wrapper
+        #player.content-wrapper
           .media-buttons
             .button-group.clearfix.float-center
               a.button.columns.small-3(data-toggle='offCanvas')
                 i.fi-music
-              a.button.columns.small-3
+              a#play.button.columns.small-3
                 i.fi-play.active
-              a.button.columns.small-3
-                i.fi-stop.stop
+              a#stop.button.columns.small-3
+                i.fi-stop
               a.button.columns.small-3.volume-btn
                 i.fi-volume
                 span.volume
@@ -35,9 +35,5 @@ block content
                     span.slider-handle(aria-controls='Value', data-slider-handle='', role='slider', tabindex='1')
                     span.slider-fill(data-slider-fill='')
                   input#Value(disabled=' ', type='number')
-  html
-    body
-      audio(controls='')
-        source(src='http://localhost:3000/stream', type='audio/mpeg')
   != js("main")
 

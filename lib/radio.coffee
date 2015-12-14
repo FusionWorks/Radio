@@ -1,21 +1,22 @@
 _ = require 'underscore'
 
 Listener = require './listener'
-Player = require './player'
+Player = require './track'
 
 class Radio
   listeners: []
   listenersCount: 0
-  player: undefined
+  adapter: undefined
+  socket: undefined
+  currentTrack: undefined
 
-  constructor: ->
-    @player = new Player()
+  constructor: (adapter, socket) ->
+    @adapter = adapter
+    @socket = socket
 
-    @player.on 'ready', @onReady
-    @player.on 'data', @onRead
-    @player.on 'end', => console.log arguments
-
-    console.log 'Radio initialized'
+    @adapter.loadTracks =>
+      console.log 'Radio initialized'
+      @_next()
 
   addListener: (req, res) ->
     listener = new Listener res
@@ -32,11 +33,24 @@ class Radio
 
     console.log "Listener #{listener.id} disconnected. Total: #{@listenersCount}"
 
-  onReady: =>
-    @player.nextTrack()
+  _next: ->
+    @adapter.next (track) =>
+      @currentTrack = track
+
+      @currentTrack.on 'data', @onRead
+      @currentTrack.on 'end', @onEnd
+
+      console.log "Playing track #{track.name}"
+
+      @socket.emit 'track', name: track.name
+      track.play()
 
   onRead: (data) =>
     for listener in @listeners
       listener.send data
 
-module.exports = new Radio
+  onEnd: =>
+    @currentTrack = null
+    delete @currentTrack
+
+module.exports = Radio

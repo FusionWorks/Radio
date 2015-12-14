@@ -22,7 +22,7 @@ app.set 'view engine', 'jade'
 
 # assets management
 app.use require('connect-assets')
-  paths: ("#{paths.assets}/#{dir}" for dir in ['js', 'css', 'font', 'vendor'])
+  paths: ['assets/js', 'assets/css', 'assets/font', 'assets/vendor', 'node_modules']
   fingerprinting: false
 
 # uncomment after placing your favicon in /public
