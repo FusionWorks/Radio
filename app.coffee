@@ -14,7 +14,7 @@ paths =
 app = express()
 
 # init DB
-mongoose.connect 'mongodb://localhost/fw-radio'
+#mongoose.connect 'mongodb://localhost/fw-radio'
 
 # view engine setup
 app.set 'views', "./#{paths.views}"
