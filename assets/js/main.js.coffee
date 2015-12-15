@@ -1,7 +1,7 @@
 #= require jquery/dist/jquery
 #= require foundation-sites/dist/foundation
 #= require jquery-backstretch/src/jquery.backstretch
-#= require buzz/dist/buzz.js
+#= require buzz.js
 #= require player
 
 $ ->
