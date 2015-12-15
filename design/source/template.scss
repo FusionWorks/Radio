@@ -17,11 +17,21 @@
     width: 100%;
     margin: 0;
     .button-group {
+      background-color: rgba(0,0,0,0.7);
       margin-bottom: 0;
       display: inline-block;
       vertical-align: bottom;
+      .track-wrapper {
+        height: 3px;
+        // background-color: #dedede;
+        .track {
+          height:3px;
+          background-color: #1d92cf;
+          width: 20%;
+        }
+      }
       .button {
-        background-color: rgba(0,0,0,0.7);
+        background-color: transparent;
         font-size: 1.4rem;
         padding: 1rem 2.019rem 0.9rem;
         position: relative;
@@ -99,3 +109,4 @@
     }
   }
 }
+.slider.vertical .slider-handle {width: 1rem; height: 1rem;}
