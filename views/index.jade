@@ -9,9 +9,6 @@ block content
             .time
               i.fi-play
             .name= track.name
-          //.song-wrap
-            .time 14:23
-            .name The Encyclopedists Encyclopedists - Encyclopedists Encyclopedists
       .off-canvas-content(data-off-canvas-content='')
         #player.content-wrapper
           .media-buttons
@@ -29,5 +26,6 @@ block content
                     span.slider-handle(aria-controls='Value', data-slider-handle='', role='slider', tabindex='1')
                     span.slider-fill(data-slider-fill='')
                   input#Value(disabled=' ', type='number')
+  script(src='http://localhost:3014/socket.io/socket.io.js')
   != js("main")
 

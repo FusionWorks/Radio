@@ -4,7 +4,7 @@ Adapter = require '../lib/adapter/filesystem'
 module.exports = (app) ->
   server = require('http').createServer(app)
   socket = require('socket.io') server
-  server.listen 8000
+  server.listen 3014
 
   adapter = new Adapter 'media'
   radio = new Radio adapter, socket

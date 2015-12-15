@@ -1,6 +1,6 @@
 class window.Player
   isPlaying: false
-  url: 'http://localhost:3000/stream'
+  url: 'http://localhost:3015/stream'
   player: undefined
 
   constructor: ->

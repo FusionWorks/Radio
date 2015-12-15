@@ -33,6 +33,8 @@ app.use bodyParser.urlencoded
   extended: false
 app.use cookieParser()
 
+app.use express.static('assets')
+
 # load controllers
 controllers = fs.readdirSync paths.controllers
 for controller in controllers
