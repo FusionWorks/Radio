@@ -11,10 +11,10 @@ block content
             .name= track.name
       .off-canvas-content(data-off-canvas-content='')
         #player.content-wrapper
-          .media-buttons
+          .media-buttons(style="display: none;")
             .button-group.clearfix.float-center
               .track-wrapper
-                .track
+                .track(style="display: none;")
               a.button.columns.small-3(data-toggle='offCanvas')
                 i.fi-music
               a#play.button.columns.small-3
@@ -29,6 +29,11 @@ block content
                     span.slider-fill(data-slider-fill='')
                   input#actual-volume(type="hidden")
                   input#volume(disabled=' ', type='number')
+  script.
+    window.opts = {
+      elapsed : #{track.elapsed},
+      duration: #{track.duration}
+    }
   script(src='http://localhost:3014/socket.io/socket.io.js')
   != js("main")
 

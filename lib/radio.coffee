@@ -42,7 +42,7 @@ class Radio
 
       console.log "Playing track #{track.name}"
 
-      @socket.emit 'track', name: track.name
+      @socket.emit 'track', track.export()
       track.play()
 
   onRead: (data) =>
@@ -50,8 +50,10 @@ class Radio
       listener.send data
 
   onEnd: =>
-    @currentTrack = null
-    delete @currentTrack
-    @_next()
+    setTimeout =>
+      @currentTrack = null
+      delete @currentTrack
+      @_next()
+    , 1000
 
 module.exports = Radio

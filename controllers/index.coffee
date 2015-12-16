@@ -6,5 +6,5 @@ module.exports = (app) ->
 
   app.get '/', (req, res) ->
     res.render 'index',
-      track: app.radio.currentTrack
+      track: app.radio.currentTrack.export()
 

@@ -8,6 +8,7 @@ class Track extends stream.Writable
   name: null
   duration: null
   rate: null
+  elapsed: 0
 
   _write: (data, encoding, cb) ->
     @_chunk = data
@@ -28,5 +29,14 @@ class Track extends stream.Writable
   play: ->
     throttle = new Throttle @rate / 8
     @inputStream.pipe(throttle).pipe(@)
+
+    setInterval =>
+      @elapsed++
+    , 1000
+
+  export: ->
+    name: @name
+    duration: @duration
+    elapsed: @elapsed
 
 module.exports = Track

@@ -3,10 +3,24 @@ class window.Player
   url: 'http://localhost:3015/stream'
   player: undefined
   volume: 80
+  socket: undefined
+  step: undefined
 
-  constructor: ->
+  constructor: (opts) ->
+    @socket = opts.socket
     @player = new buzz.sound @url,
       autoplay: true
+
+
+    $(".media-buttons").slideToggle 500, =>
+      $(".track").width("#{@elapsed}px").fadeIn 500
+
+    @trackWrapperWidth = $(".track-wrapper").width()
+    @step = opts.currentTrack.duration / @trackWrapperWidth
+    @elapsed = opts.currentTrack.elapsed / @step
+
+#    @player.bind 'loadeddata', ->
+#      debugger
 
     volume = $('.volume-btn')
     volume.on 'click', ->
@@ -24,6 +38,15 @@ class window.Player
 
     @isPlaying = true
 
+    @socket.on 'track', (track) =>
+      $(".track").width "0%"
+      @step = track.duration / @trackWrapperWidth
+      @elapsed = 0
+      clearInterval @interval
+      @interval = setInterval @_onTick, @step * 1000
+
+    @interval = setInterval @_onTick, @step * 1000
+
     $("#play").click =>
       unless @isPlaying
         @_toggleState()
@@ -39,3 +62,8 @@ class window.Player
     @isPlaying = ! @isPlaying
     $("#play i").toggleClass 'active'
     $("#stop i").toggleClass 'stop'
+    $(".track").fadeToggle 500
+
+  _onTick: =>
+    @elapsed++
+    $(".track").width "#{@elapsed}px"
