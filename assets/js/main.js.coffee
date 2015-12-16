@@ -13,13 +13,6 @@ $ ->
 #    duration: 3000
 #    fade: 750
 
-  volume = $('.volume-btn')
-  volume.on 'click', ->
-    $(this).addClass 'active'
-
-  $('body').click (e) ->
-    if !($.contains(volume[0], e.target) or volume.is(e.target) or $('.js-callback-control').is(e.target))
-      volume.removeClass 'active'
 
   socket = io 'http://localhost:3014'
   socket.on 'track', (track) ->

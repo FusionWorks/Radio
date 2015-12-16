@@ -13,6 +13,8 @@ block content
         #player.content-wrapper
           .media-buttons
             .button-group.clearfix.float-center
+              .track-wrapper
+                .track
               a.button.columns.small-3(data-toggle='offCanvas')
                 i.fi-music
               a#play.button.columns.small-3
@@ -22,10 +24,11 @@ block content
               a.button.columns.small-3.volume-btn
                 i.fi-volume
                 span.volume
-                  span.slider.vertical(data-end='100', data-initial-start='50', data-slider='', data-vertical='true')
-                    span.slider-handle(aria-controls='Value', data-slider-handle='', role='slider', tabindex='1')
+                  span#volume-slider.slider.vertical(data-end='100', data-initial-start='80', clickSelect='true', data-slider='', data-vertical='true')
+                    span.slider-handle(aria-controls='actual-volume', data-slider-handle='', role='slider', tabindex='1')
                     span.slider-fill(data-slider-fill='')
-                  input#Value(disabled=' ', type='number')
+                  input#actual-volume(type="hidden")
+                  input#volume(disabled=' ', type='number')
   script(src='http://localhost:3014/socket.io/socket.io.js')
   != js("main")
 

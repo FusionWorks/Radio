@@ -18,16 +18,25 @@
     width: 100%;
     margin: 0;
     .button-group {
+      background-color: rgba(0,0,0,0.7);
       margin-bottom: 0;
       display: inline-block;
       vertical-align: bottom;
+      .track-wrapper {
+        height: 3px;
+        .track {
+          height:3px;
+          background-color: #1d92cf;
+          width: 20%;
+        }
+      }
       .button {
-        background-color: rgba(0,0,0,0.7);
         font-size: 1.4rem;
         padding: 1rem 2.019rem 0.9rem;
         position: relative;
         border: none;
-        &:hover, {
+        background-color: transparent;
+        &:hover {
           background-color: rgba(0,0,0,1);
         }
         .fi-play.active {
@@ -47,12 +56,15 @@
           .slider.vertical {
             height: 70%;
           }
-          #Value {
+          #volume {
             background: transparent;
             color: #fff;
             border: none;
             text-align: center;
             padding-left: 20px;
+          }
+          #actual-volume {
+            display: none;
           }
         }
       }
@@ -100,3 +112,4 @@
     }
   }
 }
+.slider.vertical .slider-handle {width: 1rem; height: 1rem;}
