@@ -8,16 +8,20 @@
 $ ->
   $(document).foundation()
 
-  $('.off-canvas-content').backstretch [
-    'images/bg/1.jpg'
-  ],
-#    duration: 3000
-#    fade: 750
+  initialImage = _.random 1, 131
+  $('.off-canvas-content').backstretch "images/bg/img-#{initialImage}.jpg",
+    fade: 750
+    duration: 600000
 
+  bs = $('.off-canvas-content').data 'backstretch'
+
+  for i in [1..131] when i isnt initialImage
+    bs.images.push "images/bg/img-#{i}.jpg"
 
   socket = io 'http://localhost:3014'
   socket.on 'track', (track) ->
     $(".current-song .name").html track.name
+    $('.off-canvas-content').backstretch 'next'
     console.log track
 
   player = new Player
