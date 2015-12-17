@@ -105,6 +105,37 @@
 .off-canvas {
   height: 100%;
   background-color: #333333;
+  display: table;
+}
+
+.off-canvas .footer {
+  display: table-row;
+  height: 1px;
+  text-align: center;
+  color: #fff;
+}
+
+.off-canvas .footer .fi-social-github {
+  font-size: 30px;
+  color: #fff;
+}
+
+.off-canvas .footer .logo-company {
+  margin-left: 10px;
+}
+
+.off-canvas .footer .logo-company img {
+  width: 30px;
+}
+
+.off-canvas .footer a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.off-canvas .footer .copyRights {
+  font-size: 11px;
+  line-height: 13px;
 }
 
 .off-canvas .song-wrap {
