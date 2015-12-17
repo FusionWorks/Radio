@@ -2,6 +2,7 @@ _ = require 'underscore'
 
 Listener = require './listener'
 Player = require './track'
+History = require './history'
 
 class Radio
   listeners: []
@@ -9,10 +10,12 @@ class Radio
   adapter: undefined
   socket: undefined
   currentTrack: undefined
+  history: undefined
 
   constructor: (adapter, socket) ->
     @adapter = adapter
     @socket = socket
+    @history = new History
 
     @adapter.loadTracks =>
       console.log 'Radio initialized'
@@ -36,6 +39,7 @@ class Radio
   _next: ->
     @adapter.next (track) =>
       @currentTrack = track
+      @history.add track
 
       @currentTrack.on 'data', @onRead
       @currentTrack.on 'end', @onEnd

@@ -21,6 +21,7 @@
   "dependencies": {
     "jquery-backstretch": "~2.0.4",
     "foundation-sites": "~6.0.5",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "moment": "~2.10.6"
   }
 }

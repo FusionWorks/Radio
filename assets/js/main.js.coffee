@@ -4,6 +4,8 @@
 #= require jquery-backstretch/src/jquery.backstretch
 #= require buzz.js
 #= require player
+#= require history
+#= require moment/moment
 
 $ ->
   $(document).foundation()
@@ -26,7 +28,9 @@ $ ->
 
   player = new Player
     socket: socket
-    currentTrack:
-      elapsed: window.opts.elapsed
-      duration: window.opts.duration
+    currentTrack: window.opts.track
+
+  history = new History
+    tracks: window.opts.history
+    socket: socket
 
