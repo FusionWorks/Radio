@@ -27,30 +27,30 @@
 
         .off-canvas-content{"data-off-canvas-content" => ""}
           .content-wrapper
-            .spinner
-              .rect1
-              .rect2
-              .rect3
-              .rect4
-              .rect5
-
             .media-buttons
               .button-group.clearfix.float-center
-                .track-wrapper
-                  .track
-                %a.button.columns.small-3{"data-toggle" => "offCanvas",}
-                  %i.fi-music
-                %a.button.columns.small-3
-                  %i.fi-play.active
-                %a.button.columns.small-3
-                  %i.fi-stop.stop
-                %a.button.columns.small-3.volume-btn
-                  %i.fi-volume
-                  %span.volume
-                    %span.slider.vertical{"data-end" => "100", "data-initial-start" => "50", "data-slider" => "", "data-vertical" => "true"}
-                      %span.slider-handle{"aria-controls" => "Value", "data-slider-handle" => "", :role => "slider", :tabindex => "1"}
-                      %span.slider-fill{"data-slider-fill" => ""}
-                    %input#Value{:type => "number", :disabled => ""}/
+                / .track-wrapper
+                /   .track
+                / %a.button.columns.small-3{"data-toggle" => "offCanvas",}
+                /   %i.fi-music
+                / %a.button.columns.small-3
+                /   %i.fi-play.active
+                / %a.button.columns.small-3
+                /   %i.fi-stop.stop
+                / %a.button.columns.small-3.volume-btn
+                /   %i.fi-volume
+                /   %span.volume
+                /     %span.slider.vertical{"data-end" => "100", "data-initial-start" => "50", "data-slider" => "", "data-vertical" => "true"}
+                /       %span.slider-handle{"aria-controls" => "Value", "data-slider-handle" => "", :role => "slider", :tabindex => "1"}
+                /       %span.slider-fill{"data-slider-fill" => ""}
+                /     %input#Value{:type => "number", :disabled => ""}/
+                .spinner
+                  .rect1
+                  .rect2
+                  .rect3
+                  .rect4
+                  .rect5
+
 
     %script{:src => "bower_components/jquery/dist/jquery.js"}
     %script{:src => "bower_components/foundation-sites/dist/foundation.js"}
