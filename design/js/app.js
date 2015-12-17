@@ -9,18 +9,26 @@ $(document).foundation();
     ], {duration: 3000, fade: 750});
 
   var volume = $('.volume-btn');
-  volume.on("click", function() {
+  volume.on("mouseenter", function() {
     $(this).addClass('active');
   });
-  $('body').click(function(e) {
-      if ( !(
-              $.contains(volume[0], e.target) ||
-              volume.is(e.target)                 ||
-              $('.js-callback-control').is(e.target)
-          )
-      ) {
-         volume.removeClass('active');
-      }
+  volume.on("mouseleave", function() {
+    $(this).removeClass('active');
   });
+  volume.on('click', function  () {
+    $(this).toggleClass('mute');
+  })
+
+
+  // $('body').click(function(e) {
+  //     if ( !(
+  //             $.contains(volume[0], e.target) ||
+  //             volume.is(e.target)                 ||
+  //             $('.js-callback-control').is(e.target)
+  //         )
+  //     ) {
+  //        volume.removeClass('active');
+  //     }
+  // });
 
 });
