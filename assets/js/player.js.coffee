@@ -5,30 +5,36 @@ class window.Player
   volume: 80
   socket: undefined
   step: undefined
+  trackWrapperWidth: 320
 
   constructor: (opts) ->
     @socket = opts.socket
     @player = new buzz.sound @url,
       autoplay: true
 
+    @step = opts.currentTrack.duration / @trackWrapperWidth
+    @elapsed = opts.currentTrack.elapsed / @step
 
     $(".media-buttons").slideToggle 500, =>
       $(".track").width("#{@elapsed}px").fadeIn 500
 
-    @trackWrapperWidth = $(".track-wrapper").width()
-    @step = opts.currentTrack.duration / @trackWrapperWidth
-    @elapsed = opts.currentTrack.elapsed / @step
-
-#    @player.bind 'loadeddata', ->
-#      debugger
+    @player.bind 'loadeddata', ->
+      $(".spinner").fadeOut 100, ->
+        $("#player-nav").fadeIn 500
+        volumeSlider = new Foundation.Slider $("#volume-slider")
 
     volume = $('.volume-btn')
-    volume.on 'click', ->
-      $(this).addClass 'active'
 
-    $('body').click (e) ->
-      if !($.contains(volume[0], e.target) or volume.is(e.target) or $('.js-callback-control').is(e.target))
-        volume.removeClass 'active'
+    volume.on "mouseenter", ->
+      $(@).addClass 'active'
+
+    volume.on "mouseleave", ->
+      $(@).removeClass 'active'
+
+    volume.on 'click', (e) =>
+        return true unless e.target.tagName in ['A', 'I']
+        $(e.currentTarget).toggleClass 'mute'
+        @player.toggleMute()
 
     $("#volume-slider").on 'moved.zf.slider', =>
       @volume = parseInt $("#actual-volume").val()
@@ -49,6 +55,8 @@ class window.Player
 
     $("#play").click =>
       unless @isPlaying
+        $("#player-nav").fadeOut 100, ->
+          $(".spinner").fadeIn 500
         @_toggleState()
         @player.addSource @url
         @player.play()
