@@ -13,22 +13,29 @@ block content
         #player.content-wrapper
           .media-buttons(style="display: none;")
             .button-group.clearfix.float-center
-              .track-wrapper
-                .track(style="display: none;")
-              a.button.columns.small-3(data-toggle='offCanvas')
-                i.fi-music
-              a#play.button.columns.small-3
-                i.fi-play.active
-              a#stop.button.columns.small-3
-                i.fi-stop
-              a.button.columns.small-3.volume-btn
-                i.fi-volume
-                span.volume
-                  span#volume-slider.slider.vertical(data-end='100', data-initial-start='80', clickSelect='true', data-slider='', data-vertical='true')
-                    span.slider-handle(aria-controls='actual-volume', data-slider-handle='', role='slider', tabindex='1')
-                    span.slider-fill(data-slider-fill='')
-                  input#actual-volume(type="hidden")
-                  input#volume(disabled=' ', type='number')
+              .spinner
+                .rect1
+                .rect2
+                .rect3
+                .rect4
+                .rect5
+              #player-nav(style="display: none;")
+                .track-wrapper
+                  .track(style="display: none;")
+                a.button.columns.small-3(data-toggle='offCanvas')
+                  i.fi-music
+                a#play.button.columns.small-3
+                  i.fi-play.active
+                a#stop.button.columns.small-3
+                  i.fi-stop
+                a.button.columns.small-3.volume-btn
+                  i.fi-volume
+                  span.volume
+                    span#volume-slider.slider.vertical(data-end='100', data-initial-start='80', clickSelect='true', data-vertical='true')
+                      span.slider-handle(aria-controls='actual-volume', data-slider-handle='', role='slider', tabindex='1')
+                      span.slider-fill(data-slider-fill='')
+                    input#actual-volume(type="hidden")
+                    input#volume(disabled=' ', type='number')
   script.
     window.opts = {
       elapsed : #{track.elapsed},
