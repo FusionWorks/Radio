@@ -4,11 +4,9 @@ block content
   .off-canvas-wrapper
     .off-canvas-wrapper-inner(data-off-canvas-wrapper='')
       #offCanvas.off-canvas.position-left(data-off-canvas='')
-        nav.left-off-canvas-menu
-          .song-wrap.current-song
-            .time
-              i.fi-play
-            .name= track.name
+        nav#playlist.left-off-canvas-menu
+          #current
+          #history
       .off-canvas-content(data-off-canvas-content='')
         #player.content-wrapper
           .media-buttons(style="display: none;")
@@ -38,8 +36,8 @@ block content
                     input#volume(disabled=' ', type='number')
   script.
     window.opts = {
-      elapsed : #{track.elapsed},
-      duration: #{track.duration}
+      track: !{track},
+      history: !{history}
     }
   script(src='http://localhost:3014/socket.io/socket.io.js')
   != js("main")

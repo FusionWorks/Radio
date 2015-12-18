@@ -5,6 +5,8 @@ module.exports = (app) ->
   track.save()
 
   app.get '/', (req, res) ->
+    console.log app.radio.history.export()
     res.render 'index',
-      track: app.radio.currentTrack.export()
+      track: JSON.stringify app.radio.currentTrack.export()
+      history: JSON.stringify app.radio.history.export()
 
