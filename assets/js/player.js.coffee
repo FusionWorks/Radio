@@ -20,11 +20,11 @@ class window.Player
       $(".track").width("#{@elapsed}px").fadeIn 500
 
       # HTML5 audio component has unexpected behaviour,
-      # so we are checking if the stream sah started after 2.5 seconds
+      # so we are checking if the stream sah started after 15 seconds
       # and force restarting it on fail
       setTimeout =>
         @player.load().play() if @player.getNetworkStateCode() isnt 2
-      , 2500
+      , 15000
 
     @player.bind 'loadeddata', ->
       $(".spinner").fadeOut 100, ->
