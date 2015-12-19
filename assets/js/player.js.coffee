@@ -1,6 +1,6 @@
 class window.Player
   isPlaying: false
-  url: 'http://localhost:3015/stream'
+  url: ''
   player: undefined
   volume: 80
   socket: undefined
@@ -9,6 +9,7 @@ class window.Player
 
   constructor: (opts) ->
     @socket = opts.socket
+    @url = opts.streamingUrl
     @player = new buzz.sound @url,
       autoplay: true
 

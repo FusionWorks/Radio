@@ -4,7 +4,8 @@ logger = require 'morgan'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
 fs = require 'fs'
-mongoose = require 'mongoose'
+#mongoose = require 'mongoose'
+config = require './config.json'
 
 paths =
   views: 'views'
@@ -12,6 +13,7 @@ paths =
   assets: 'assets'
 
 app = express()
+app.set 'config', config
 
 # init DB
 #mongoose.connect 'mongodb://localhost/fw-radio'

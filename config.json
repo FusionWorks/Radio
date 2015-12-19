@@ -1,0 +1,6 @@
+{
+  "hostname"      : "localhost",
+  "http_port"     : "3015",
+  "ws_port"       : "3014",
+  "streaming_url" : "stream"
+}

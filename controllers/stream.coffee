@@ -4,7 +4,7 @@ Adapter = require '../lib/adapter/filesystem'
 module.exports = (app) ->
   server = require('http').createServer(app)
   socket = require('socket.io') server
-  server.listen 3014
+  server.listen app.get('config').ws_port
 
   adapter = new Adapter 'media'
   radio = new Radio adapter, socket

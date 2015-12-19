@@ -20,15 +20,15 @@ $ ->
   for i in [1..131] when i isnt initialImage
     bs.images.push "images/bg/img-#{i}.jpg"
 
-  socket = io 'http://localhost:3014'
+  socket = io "http://#{opts.config.hostname}:#{opts.config.ws_port}"
   socket.on 'track', (track) ->
     $(".current-song .name").html track.name
     $('.off-canvas-content').backstretch 'next'
-    console.log track
 
   player = new Player
     socket: socket
     currentTrack: window.opts.track
+    streamingUrl: "http://#{opts.config.hostname}:#{opts.config.http_port}/#{opts.config.streaming_url}"
 
   history = new History
     tracks: window.opts.history

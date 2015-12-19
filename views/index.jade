@@ -7,6 +7,16 @@ block content
         nav#playlist.left-off-canvas-menu
           #current
           #history
+        .footer
+          a(href='#')
+            i.fi-social-github
+          a.logo-company(href='#')
+            img(alt='Fusion Works', src='images/logo.png')
+          p.copyRights
+            | MIT license
+            br
+            | Copyright © 2016 Fusion Works
+
       .off-canvas-content(data-off-canvas-content='')
         #player.content-wrapper
           .media-buttons(style="display: none;")
@@ -37,7 +47,8 @@ block content
   script.
     window.opts = {
       track: !{track},
-      history: !{history}
+      history: !{history},
+      config: !{config}
     }
   script(src='http://localhost:3014/socket.io/socket.io.js')
   != js("main")
