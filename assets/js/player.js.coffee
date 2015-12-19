@@ -40,7 +40,7 @@ class window.Player
       $(@).removeClass 'active'
 
     volume.on 'click', (e) =>
-        return true unless e.target.tagName in ['A', 'I']
+        return true unless e.target.tagName in ['DIV', 'I']
         $(e.currentTarget).toggleClass 'mute'
         @player.toggleMute()
 
