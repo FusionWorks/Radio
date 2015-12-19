@@ -1,6 +1,5 @@
 class History
   tracks: []
-  current: undefined
   socket: undefined
   el: $("#playlist")
   tplHistory: _.template '<div class="song-wrap"><div class="time"><%= moment(startTime).format("HH:mm") %></div><div class="name"><%= name %></div></div>'
@@ -14,14 +13,12 @@ class History
 
   addTrack: (track) =>
     if @tracks.length is 6
-      @el.find("#playlist .song-wrap:last").remove()
-      @tracks.pop()
+      @el.find("#history .song-wrap:last").remove()
+      @tracks.shift()
 
-    if @current
-      @tracks.push @current
-      @el.find("#history").prepend @tplHistory @current
+    @el.find("#history").prepend @tplHistory _.last @tracks if @tracks.length
 
+    @tracks.push track
     @el.find("#current").html @tplCurrent track
-    @current = track
 
 

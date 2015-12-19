@@ -44,10 +44,10 @@ class Radio
       @currentTrack.on 'data', @onRead
       @currentTrack.on 'end', @onEnd
 
-      console.log "Playing track #{track.name}"
+      track.play()
 
       @socket.emit 'track', track.export()
-      track.play()
+      console.log "Playing track #{track.name}"
 
   onRead: (data) =>
     for listener in @listeners

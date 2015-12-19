@@ -21,7 +21,7 @@ class window.Player
     @player.bind 'loadeddata', ->
       $(".spinner").fadeOut 100, ->
         $("#player-nav").fadeIn 500
-        volumeSlider = new Foundation.Slider $("#volume-slider")
+        volumeSlider = new Foundation.Slider $("#volume-slider") unless $("#volume-slider").is '[data-slider]'
 
     volume = $('.volume-btn')
 
