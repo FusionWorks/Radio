@@ -28,7 +28,7 @@ class Track extends stream.Writable
       @emit 'end'
 
   play: ->
-    throttle = new Throttle @rate * 1
+    throttle = new Throttle @rate / 8
     @inputStream.pipe(throttle).pipe(@)
     @startTime = new Date()
 
