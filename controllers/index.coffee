@@ -8,5 +8,7 @@ module.exports = (app) ->
     res.render 'index',
       track: JSON.stringify app.radio.currentTrack.export()
       history: JSON.stringify app.radio.history.export()
-      config: JSON.stringify app.get('config')
+      configJSON: JSON.stringify app.get('config')
+      config: app.get('config')
+
 

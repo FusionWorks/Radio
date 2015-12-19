@@ -48,8 +48,8 @@ block content
     window.opts = {
       track: !{track},
       history: !{history},
-      config: !{config}
+      config: !{configJSON}
     }
-  script(src='http://localhost:3014/socket.io/socket.io.js')
+  script(src="http://#{config.hostname}:#{config.ws_port}/socket.io/socket.io.js")
   != js("main")
 
