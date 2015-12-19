@@ -39,7 +39,7 @@ block content
                 a.button.columns.small-3.volume-btn
                   i.fi-volume
                   span.volume
-                    span#volume-slider.slider.vertical(data-end='100', data-initial-start='80', clickSelect='true', data-vertical='true')
+                    span#volume-slider.slider.vertical(data-end='100', data-initial-start='80', clickSelect='true', data-vertical='true', aria-valuemin=0, aria-valuemax=100, aria-valuenow=80)
                       span.slider-handle(aria-controls='actual-volume', data-slider-handle='', role='slider', tabindex='1')
                       span.slider-fill(data-slider-fill='')
                     input#actual-volume(type="hidden")
