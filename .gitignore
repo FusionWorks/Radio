@@ -2,5 +2,6 @@ npm-debug.log*
 node_modules
 assets/vendor
 builtAssets
-media/*
+media
 config.json
+*.DS_Store
