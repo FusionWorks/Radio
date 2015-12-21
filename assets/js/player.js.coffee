@@ -12,6 +12,7 @@ class window.Player
     @url = opts.streamingUrl
     @player = new buzz.sound @url,
       autoplay: true
+      webAudioApi: true
 
     @step = opts.currentTrack.duration / @trackWrapperWidth
     @elapsed = opts.currentTrack.elapsed / @step
@@ -20,11 +21,10 @@ class window.Player
       $(".track").width("#{@elapsed}px").fadeIn 500
 
       # HTML5 audio component has unexpected behaviour,
-      # so we are checking if the stream sah started after 15 seconds
-      # and force restarting it on fail
-      setTimeout =>
-        @player.load().play() if @player.getNetworkStateCode() isnt 2
-      , 15000
+      # so we are checking if the stream is running every second
+      setInterval =>
+        @player.load().play() if @player.getNetworkStateCode() isnt 2 and @isPlaying
+      , 1000
 
     @player.bind 'loadeddata', ->
       $(".spinner").fadeOut 100, ->
