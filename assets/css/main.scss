@@ -90,6 +90,11 @@
   height: 100%;
   background-color: #333333;
   display: table;
+  position: fixed;
+  .left-off-canvas-menu {
+    height: 100%;
+    overflow: auto;
+  }
   .footer {
     display: table-row;
     height: 1px;
