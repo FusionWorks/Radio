@@ -15,7 +15,5 @@ class Listener
   _writeHead: ->
     @response.writeHead 200,
       'Content-Type': 'audio/mpeg'
-      'Connection': 'close'
-      'Transfer-Encoding': 'identity'
 
 module.exports = Listener

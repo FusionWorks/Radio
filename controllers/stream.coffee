@@ -16,3 +16,4 @@ module.exports = (app) ->
     req.connection.on 'close', ->
       radio.removeListener listener
 
+    req.setTimeout 30 * 1000
