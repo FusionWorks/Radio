@@ -41,12 +41,12 @@ block content
                   i.fi-stop
                 div.button.columns.small-3.volume-btn
                   i.fi-volume
-                  span.volume
+                  span.volume.hide-for-small-only
                     span#volume-slider.slider.vertical(data-end='100', data-initial-start='80', data-vertical='true')
                       span.slider-handle(aria-controls='actual-volume', data-slider-handle='', role='slider', tabindex='1', aria-valuemin=0, aria-valuemax=100, aria-valuenow=80)
                       span.slider-fill(data-slider-fill='')
                     input#actual-volume(type="hidden")
-                    input#volume(disabled='disabled', type='number')
+                    input#volume(disabled='disabled', type='text')
   script.
     window.opts = {
       track: !{track},
