@@ -4,7 +4,7 @@ class History
   tracks: []
 
   add: (track) ->
-    @tracks.pop() if @tracks.length is 6
+    @tracks.shift() if @tracks.length is 6
     @tracks.push track
 
   export: ->
