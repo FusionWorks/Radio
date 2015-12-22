@@ -18,10 +18,10 @@ define ['jquery', 'underscore', 'moment'], ($, _, moment) ->
         @tracks.shift()
 
       if @tracks.length
-        track = _.last @tracks
+        shiftedTrack = _.last @tracks
         @el.find("#history").prepend @tplHistory
-          name: track.name
-          time: moment(track.startTime).format "HH:mm"
+          name: shiftedTrack.name
+          time: moment(shiftedTrack.startTime).format "HH:mm"
 
       @tracks.push track
       @el.find("#current").html @tplCurrent track
