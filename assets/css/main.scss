@@ -1,6 +1,14 @@
 /*= require foundation-sites/dist/foundation.min.css */
 /*= require foundation-icons.css */
 
+@mixin vendor($property, $value...){
+  -webkit-#{$property}:$value;
+  -moz-#{$property}:$value;
+  -ms-#{$property}:$value;
+  -o-#{$property}:$value;
+  #{$property}:$value;
+}
+
 * {
   outline: none 0;
 }
@@ -203,4 +211,52 @@
        transform: scaleY(1.0);
        -webkit-transform: scaleY(1.0);
      }
+}
+
+@media (max-width: 767px) {
+  .off-canvas {
+    display: block;
+
+    .left-off-canvas-menu {
+      height: auto;
+      overflow: auto;
+    }
+
+    .footer {
+      display: block;
+    }
+  }
+}
+
+.menu-button {
+  display:block;
+  width:40px;
+  margin: 10px;
+  @include vendor(transform, translate3d(0,0,0));
+  &:before,
+  &:after,
+  span {
+    background: #fff;
+    @include vendor(border-radius, 3px);
+    content:'';
+    display:block;
+    height:4px;
+    margin:6px 0;
+    @include vendor(transition, all .2s ease-out);
+    width:100%;
+  }
+}
+
+.is-open-left .menu-button {
+  &:before {
+    @include vendor(transform, rotate(45deg) translate3d(5px,10px,0));
+  }
+
+  span {
+    opacity: 0;
+  }
+
+  &:after {
+    @include vendor(transform, rotate(-45deg) translate3d(5px,-10px,0));
+  }
 }
