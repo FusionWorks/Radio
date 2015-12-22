@@ -4,7 +4,7 @@ logger = require 'morgan'
 cookieParser = require 'cookie-parser'
 bodyParser = require 'body-parser'
 fs = require 'fs'
-#mongoose = require 'mongoose'
+
 config = require './config.json'
 
 paths =
@@ -15,9 +15,6 @@ paths =
 app = express()
 app.set 'config', config
 
-# init DB
-#mongoose.connect 'mongodb://localhost/fw-radio'
-
 # view engine setup
 app.set 'views', "./#{paths.views}"
 app.set 'view engine', 'jade'
@@ -27,8 +24,6 @@ app.use require('connect-assets')
   paths: ['assets/css', 'assets/font', 'assets/vendor']
   fingerprinting: false
 
-# uncomment after placing your favicon in /public
-# app.use favicon "#{__dirname}/public/favicon.ico"
 app.use logger 'dev'
 app.use bodyParser.json()
 app.use bodyParser.urlencoded
