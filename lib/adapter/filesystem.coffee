@@ -26,7 +26,7 @@ class FileSystemAdapter
     probe file, (err, data) =>
       if err
         console.log 'Error reading track info'
-        @next cb
+        return @next cb
 
       rate = data.format.bit_rate
       stream = fs.createReadStream file
