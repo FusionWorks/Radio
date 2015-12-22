@@ -10,5 +10,6 @@ module.exports = (app) ->
       history: JSON.stringify app.radio.history.export()
       configJSON: JSON.stringify app.get('config')
       config: app.get('config')
+      env: app.get('env')
 
 

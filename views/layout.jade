@@ -4,8 +4,14 @@ html.no-js(lang='en')
     meta(charset='utf-8')
     meta(content='ie=edge', http-equiv='x-ua-compatible')
     meta(content='width=device-width, initial-scale=1.0', name='viewport')
+
+    meta(property="og:title" content="FusionWorks Radio")
+    meta(property="og:type" content="FusionWorks Radio")
+    meta(property="og:url" content="http://#{config.hostname}")
+    meta(property="og:image" content="http://#{config.hostname}/images/logo.png")
+
     link(href="images/ico.png", rel="icon", type="image/png")
-    title Fusion Radio
+    title FusionWorks Radio
     != css("main")
   body
     block content

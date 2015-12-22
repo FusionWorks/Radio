@@ -53,8 +53,11 @@ block content
     window.opts = {
       track: !{track},
       history: !{history},
-      config: !{configJSON}
+      config: !{configJSON},
+      env: "!{env}"
     }
-  script(src="http://#{config.hostname}:#{config.ws_port}/socket.io/socket.io.js")
-  != js("main")
+  if env == 'production'
+    script(src="vendor/requirejs/require.js" data-main="js/main-built.js")
+  else
+    script(src="vendor/requirejs/require.js" data-main="js/main.js")
 
