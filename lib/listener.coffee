@@ -15,5 +15,6 @@ class Listener
   _writeHead: ->
     @response.writeHead 200,
       'Content-Type': 'audio/mpeg'
+      'Cache-Control': 'no-cache'
 
 module.exports = Listener
